@@ -7,7 +7,7 @@ Afin de bien installer et exécuter l'application sur votre PC veuillez suivre l
 
 2- cloner le projet
 ```
-git clone 
+git clone https://github.com/HajarBouanan/uballers.gits
 ```
 3- acceder au projet
 ```
