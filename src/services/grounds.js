@@ -1,7 +1,9 @@
 import groundsData from './groundsData.json';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// this file is the bridge between our screens and the data we use from the "groundsData.json"
 
+//this function get all data from "groundsData.json" and we used Asyncstorage so we can do reuse it as we want
 export async function getAllGrounds (){
     try{
         const data = await AsyncStorage.getItem('data');
@@ -15,7 +17,8 @@ export async function getAllGrounds (){
         console.log(e);
     }
 }
-
+//this function manage the action were the user add his favorite ground 
+// we save the data using asyncStorage
 export async function updateGround(id, params){
     try {
         const data = await AsyncStorage.getItem('data');

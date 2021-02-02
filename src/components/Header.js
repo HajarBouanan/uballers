@@ -2,6 +2,8 @@ import React from "react";
 import { View, StyleSheet, Text, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+//this component is the header of all our screens to not repeat the code we have just to import this component
+
 function Header (props){
     return(
         <View style={styles.header}>
@@ -40,7 +42,8 @@ const styles = StyleSheet.create({
     },
     logoText: {
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color:"#B70808"
     },
     profile:{
         width: 60,

@@ -3,13 +3,17 @@ import { SafeAreaView, Text ,View, StyleSheet,} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { updateGround } from "../services/grounds";
 
-// components
+// components Header
 import Header from "../components/Header";
+
+// In this screen we display all the details of the ground selected by the user
+
 
 function Ground ({route, navigation}){
 
     const data = route.params.data;
 
+    //In this part we save the favorite ground of the user by saving the id of the ground and calling updateGround() which manage this action
     const handleAddToFavorite = function(){
         updateGround(data.id, {favorite: true})
     }
@@ -22,6 +26,7 @@ function Ground ({route, navigation}){
 
                 <Text style={styles.name}>{data.groundName}</Text>
 
+        
                 <TouchableOpacity onPress={handleAddToFavorite}>
                     <View style={styles.addToFavorite}>
                         <Text style={styles.buttonText}>Ajouter au favoris</Text>
@@ -90,11 +95,11 @@ const styles = StyleSheet.create({
     addToFavorite: {
         marginTop: 5,
         marginBottom: 10,
-        backgroundColor: "rgb(3, 102, 214)",
+        backgroundColor: "#ECC7C7",
         alignSelf: 'center',
         paddingHorizontal: 10,
         paddingVertical: 5,
-        borderRadius: 4,
+        borderRadius:30,
     },
     removeFromFavorite: {
         marginTop: 5,

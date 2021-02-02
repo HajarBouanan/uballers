@@ -17,7 +17,7 @@ import Ground from "./screens/Ground";
 const screenOptions= {
   headerShown: false
 }
-
+// in App.js handle all the sceen we use in the app
 const App = () => {
   return (
     <NavigationContainer>

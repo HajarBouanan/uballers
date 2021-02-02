@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {SafeAreaView, Text, View, StyleSheet, FlatList} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // components
 import Header from "../components/Header";
@@ -7,7 +8,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // services
 import { getAllGrounds } from "../services/grounds";
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function Home (props){
     // store grounds list in state
@@ -15,6 +15,7 @@ function Home (props){
 
     // simulate fetching data from server
     // fetch date once component is mounted
+    // we switched the data object to array so we can use the Flatlist to display the data
     useEffect(()=>{
         getAllGrounds()
             .then(data => {
@@ -28,9 +29,10 @@ function Home (props){
             });
     }, [])
 
-    // handleCardClick
+    // handleCardClick:
+    //This fuction is called Once the user choose to see the details of a specific ground 
     function handleClickCard (item){
-        // move to ground screen
+        // move to "ground" screen
         props.navigation.navigate("Ground", {data: item});
     }
 
@@ -48,14 +50,14 @@ function Home (props){
                             <TouchableOpacity onPress={() => handleClickCard(item)}>
                                 <View style={styles.card}>
                                     <View style={styles.cardIcon}>
-                                        <Icon name="map-marker" size={30} color="black"/>
+                                        <Icon name="map-marker" size={30} color="#B70808"/>
                                     </View>
                                     <View style={styles.cardBody}>
                                         <Text style={styles.cardTitle}>{item.groundName}</Text>
                                     </View>
-
+                                      {/* when the user select the ground as one of his favorite we add an icon se we can show him that the ground was added successfully */}
                                     <View style={styles.cardFavorite}>
-                                        {item.favorite && <Icon name="octagram" size={25} color="rgb(3, 102, 214)"/>}
+                                        {item.favorite && <Icon name="octagram" size={25} color="#B70808"/>}
                                     </View>
                                 </View>
                             </TouchableOpacity>
